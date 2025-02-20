@@ -30,7 +30,7 @@ const WhisperRecorder = () => {
       const audioBlob =
         new Blob(audioChunksRef.current, { type: 'audio/wav' });
       const formData = new FormData();
-      formData.append('audio', audioBlob, 'recording.webm');
+      formData.append('audio', audioBlob, 'recording.wav');
 
       setLoading(true);
 
@@ -38,7 +38,7 @@ const WhisperRecorder = () => {
         const response =
           await axios.post(
             'http://localhost:5000/transcribe',
-            formData,{
+            formData, {
               headers: { "Content-Type": "multipart/form-data" }
             });
         setTranscription(response.data.transcription);
