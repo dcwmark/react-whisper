@@ -47,9 +47,9 @@ const WhisperRecorder = () => {
       } finally {
         setLoading(false);
       }
-    
-      setRecording(true);
     };
+    
+    setRecording(true);
   };
 
   // Stop recording audio

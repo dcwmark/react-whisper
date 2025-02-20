@@ -30,7 +30,7 @@ app.post('/transcribe', upload.single('audio'), async (req, res) => {
   const whisperCommand = `whisper ${audioPath} --model base`;
   exec(whisperCommand, (error, stdout, stderr) => {
     // Cleanup: Delete the uploaded file
-    fs.unlinkSync(filePath);
+    fs.unlinkSync(audioPath);
     
     if (error) {
         console.error(`Error running Whisper: ${error}`, stderr);
